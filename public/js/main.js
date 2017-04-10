@@ -6,7 +6,7 @@ angular.module('wetraining', ['ngAnimate', 'ngRoute', 'ngResource'])
 
         $routeProvider.when('/home', {
             templateUrl: '/pages/home.html',
-         //   controller: 'HomeController'
+           controller: 'HomeController'
         });
 
         $routeProvider.when('/login', {

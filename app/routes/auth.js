@@ -30,9 +30,10 @@ module.exports = function (app) {
                 if (erro) {  
                     console.log("token rejeitado");
                     res.sendStatus(401);
-                }
+                }else{
                 req.login = decoded;
                 next();
+                }
             });
         } else {
             console.log("token não enviado");
