@@ -1,0 +1,1 @@
+Projeto com a ideia de autenticar o login com JWT, utilizando node js e angular js
