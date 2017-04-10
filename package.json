@@ -1,0 +1,24 @@
+{
+  "name": "wetraining",
+  "version": "1.0.0",
+  "description": "Aplicação voltada ao educador físico para organizar, auxiliar e acompanhar seus alunos.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ciro Stodulski de Azevedo",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "bower": "^1.8.0",
+    "consign": "^0.1.4",
+    "cors": "^2.8.3",
+    "express": "^4.15.2",
+    "express-favicon": "^2.0.0",
+    "jsonwebtoken": "^5.4.1",
+    "mysql": "^2.13.0",
+    "nodemon": "^1.11.0",
+    "path": "^0.12.7",
+    "payload": "^1.0.3"
+  }
+}
