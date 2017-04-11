@@ -9,6 +9,7 @@ module.exports = function (app) {
             console.log('------------------------------------');
             console.log(result);
             console.log('------------------------------------');
+            res.sendStatus(200)
         });
     });
 

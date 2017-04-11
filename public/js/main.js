@@ -1,8 +1,7 @@
 angular.module('wetraining', ['ngAnimate', 'ngRoute', 'ngResource'])
-    .config(function ($routeProvider, $locationProvider, $httpProvider) {
+  .config(function($routeProvider, $locationProvider, $httpProvider) {
 
-       $httpProvider.interceptors.push('tokenInterceptor');
-
+        $httpProvider.interceptors.push('tokenInterceptor');
 
         $routeProvider.when('/home', {
             templateUrl: '/pages/home.html',

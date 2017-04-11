@@ -1,14 +1,15 @@
 angular.module('wetraining')
     .controller('HomeController', function ($scope, $http, $location) {
+        $http.get('/usuarios');
         $scope.ususarios = [];
-    $scope.menssagem = '';
+        $scope.menssagem = '';
         $scope.listarUsuarios = function () {
-            $http.get('/usuarios')
+            $http.get('/ok')
                 .then(function (result) {
-                   console.log(result);
+                    console.log(result);
                 },
                 function (erro) {
-                   console.log(erro);
+                    console.log(erro);
                     $scope.menssagem = 'Algo deu errado';
                 });
         };

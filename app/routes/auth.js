@@ -1,44 +1,12 @@
-var jwt = require("jsonwebtoken");
-module.exports = function (app) {
-    app.post('/autentica', function (req, res) {
-        var connection = app.persistencia.connectionFactory();
-        var authDAO = new app.persistencia.authDAO(connection);
-        var usuario = {
-            login: req.body.login,
-            password: req.body.password
-        }
-        authDAO.autentica(usuario, function (erro, result) {
-            if (result.length == 0) {
-                console.log('Login/senha inválidos');
-                res.sendStatus(401);
-            } else {
-                var token = jwt.sign({ login: result.login }, app.get('secret'), {
-                    expiresIn: 1800 // expires in 30 min
-                });
-                console.log('Autenticado: token adicionado na resposta');
-                res.set('x-access-token', token);
-                res.end();
-            }
-        });
+module.exports = function(app) {
 
+    var api = app.app.api.auth;
+    console.log('------------------------------------');
+    console.log("entraando no autenticar");
+    console.log('------------------------------------');
+    app.post('/autenticar', api.autentica);
+    app.use('/*', api.verificaToken);
+    app.get('/ok', function(){
+          res.sendStatus(200)
     });
-    app.use('/*', function (req, res, next) {
-        var token = req.headers['x-access-token'];
-        if (token) {
-            console.log("verificando token");
-            jwt.verify(token, app.get('secret'), function (erro, decoded) {
-                if (erro) {  
-                    console.log("token rejeitado");
-                    res.sendStatus(401);
-                }else{
-                req.login = decoded;
-                next();
-                }
-            });
-        } else {
-            console.log("token não enviado");
-            res.sendStatus(401);
-        }
-    });
-
-}
+};
