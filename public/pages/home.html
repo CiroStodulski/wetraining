@@ -1,9 +1,17 @@
-<h1 class="text-center">listar usuarios</h1>
+<h1 class="text-center">{{menssagemGrupo}}</h1>
+
+<h3 class="text-center">listar usuarios</h3>
 <p class="alert-danger">{{menssagem}}</p>
 <form ng-submit="listarUsuarios()">
-    
     <input type="submit" value="Listar" class="btn btn-primary">
-       
 </form>
 
+<table class="table table-striped">
+    <tbody>
+        <tr ng-repeat="user in ususarios">
+            <td class="active">{{user.login}}</td>
+            <td class="active">{{user.cpf}}</td>
+        </tr>
+    </tbody>
+</table>
 <div><a ng-controller="LoginController" ng-click="deslogar()"  class="btn btn-danger">Deslogar</a>  </div>

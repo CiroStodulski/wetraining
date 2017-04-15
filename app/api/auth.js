@@ -10,15 +10,16 @@ module.exports = function (app) {
             password: req.body.password
         }
         authDAO.autentica(usuario, function (erro, result) {
-            if (result.length==0) {
+            if (result.length == 0) {
                 console.log('Login/senha inválidos');
                 res.sendStatus(401);
             } else {
-                var token = jwt.sign({ login: usuario.login }, app.get('secret'), {
+                var token = jwt.sign({ login: result[0].login, grupo: result[0].grupo, id: result[0].id }, app.get('secret'), {
                     expiresIn: 86400 // valor em segundo, aqui temos um total de 24 horas
                 });
                 console.log('Autenticado: token adicionado na resposta');
                 res.set('x-access-token', token); // adicionando token no cabeçalho de resposta
+
                 res.end(); // enviando a resposta
             }
         });
