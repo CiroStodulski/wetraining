@@ -1,11 +1,11 @@
 angular.module('wetraining', ['ngAnimate', 'ngRoute', 'ngResource'])
-  .config(function($routeProvider, $locationProvider, $httpProvider) {
+    .config(function ($routeProvider, $locationProvider, $httpProvider) {
 
         $httpProvider.interceptors.push('tokenInterceptor');
-   
+
         $routeProvider.when('/home', {
             templateUrl: '/pages/home.html',
-           controller: 'HomeController'
+            controller: 'HomeController'
         });
 
         $routeProvider.when('/login', {
@@ -13,7 +13,11 @@ angular.module('wetraining', ['ngAnimate', 'ngRoute', 'ngResource'])
             controller: 'LoginController'
         });
 
-        
-		$routeProvider.otherwise({ redirectTo: '/home' });
-       
+        $routeProvider.when('/cadastro', {
+            templateUrl: '../pages/cadastro.html',
+            controller: 'CadastroController'
+        });
+
+        $routeProvider.otherwise({ redirectTo: '/home' });
+
     });

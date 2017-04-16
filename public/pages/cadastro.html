@@ -1,6 +1,6 @@
-<h1 class="text-center">Login</h1>
+<h1 class="text-center">Cadastro</h1>
 <p class="alert-danger">{{menssagem}}</p>
-<form ng-submit="autenticar()">
+<form ng-submit="cadastrar()">
     <div class="form-group" >
         <label>Login</label>
         <input type="text" class="form-control" ng-model="user.login">
@@ -9,6 +9,10 @@
         <label>Senha</label>
         <input type="password" class="form-control" ng-model="user.password">
     </div>
-    <input type="submit" value="Entrar" class="btn btn-primary">   
-     <a href="#/cadastro" class="btn btn-success">Cadastro</a>    
+    <div class="form-group">
+        <label>Cpf</label>
+        <input type="text" class="form-control" ng-model="user.cpf">
+    </div>
+    <input type="submit" value="Cadastrar" class="btn btn-primary">   
+  
 </form>

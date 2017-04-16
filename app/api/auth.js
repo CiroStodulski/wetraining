@@ -2,6 +2,9 @@ var jwt = require("jsonwebtoken");
 module.exports = function (app) {
 
     var api = {};
+
+  
+
     api.autentica = function (req, res) {
         var connection = app.persistencia.connectionFactory();
         var authDAO = new app.persistencia.authDAO(connection);
@@ -19,7 +22,6 @@ module.exports = function (app) {
                 });
                 console.log('Autenticado: token adicionado na resposta');
                 res.set('x-access-token', token); // adicionando token no cabeçalho de resposta
-
                 res.end(); // enviando a resposta
             }
         });
@@ -46,6 +48,9 @@ module.exports = function (app) {
             return res.sendStatus(401);
         }
     }
+
+
+
 
     return api;
 }

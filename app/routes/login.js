@@ -5,9 +5,6 @@ module.exports = function (app) {
         var connection = app.persistencia.connectionFactory();
         var UsersDAO = new app.persistencia.usersDAO(connection);
         UsersDAO.lista(function (erro, result) {
-            console.log('------------------------------------');
-            console.log(result);
-            console.log('------------------------------------');
             res.status(200).json(result);
         });
     });
