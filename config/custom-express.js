@@ -3,13 +3,13 @@ var consign = require('consign');
 var cors = require('cors');
 var bodyParser = require('body-parser');
 var jwt = require("jsonwebtoken");
-const favicon = require('express-favicon');
+
 
 module.exports = function () {
 
     var app = express();
     app.set('secret', 'wetrainingajudaotreinadorisico');
-    app.use(favicon(__dirname + 'favicon.png'));
+
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
     app.use(express.static('./public'));

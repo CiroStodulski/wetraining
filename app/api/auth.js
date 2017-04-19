@@ -2,12 +2,12 @@ var jwt = require("jsonwebtoken");
 module.exports = function (app) {
 
     var api = {};
+    var connection = app.persistencia.connectionFactory();
+    var authDAO = new app.persistencia.authDAO(connection);
 
-  
 
     api.autentica = function (req, res) {
-        var connection = app.persistencia.connectionFactory();
-        var authDAO = new app.persistencia.authDAO(connection);
+
         var usuario = {
             login: req.body.login,
             password: req.body.password
@@ -29,7 +29,6 @@ module.exports = function (app) {
 
     api.verificaToken = function (req, res, next) {
         var token = req.headers['x-access-token']; // busca o token no header da requisição
-
         if (token) {
             console.log('Token recebido, decodificando');
             jwt.verify(token, app.get('secret'), function (err, decoded) {
