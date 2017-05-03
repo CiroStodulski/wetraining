@@ -4,6 +4,7 @@
   "description": "Aplicação voltada ao educador físico para organizar, auxiliar e acompanhar seus alunos.",
   "main": "index.js",
   "scripts": {
+    "start":"index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ciro Stodulski de Azevedo",
